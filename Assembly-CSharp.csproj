@@ -46,7 +46,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\GameController.cs" />
+     <Compile Include="Assets\Script\Grid.cs" />
      <Compile Include="Assets\Script\Group.cs" />
+     <Compile Include="Assets\Script\Groups.cs" />
+     <Compile Include="Assets\Script\IsAlive.cs" />
+     <Compile Include="Assets\Script\Spawn.cs" />
+     <Compile Include="Assets\Script\UIManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

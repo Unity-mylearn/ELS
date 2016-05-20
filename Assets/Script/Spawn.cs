@@ -25,5 +25,6 @@ public class Spawn : MonoBehaviour {
     public void spawnNext() {
         int i = Random.Range(0, cubes.Length);
         GameObject gb = Instantiate(cubes[i], transform.position, Quaternion.identity) as GameObject;
-    }
+		Groups.downKey = false;
+	}
 }

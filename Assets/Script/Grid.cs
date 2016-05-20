@@ -4,7 +4,7 @@ using System.Collections;
 public class Grid : MonoBehaviour {
 
     public static int w = 10;
-    public static int h = 16;
+    public static int h = 20;
 
     public static Transform[,] grid = new Transform[w, h];
 	// Use this for initialization
@@ -24,4 +24,46 @@ public class Grid : MonoBehaviour {
     public static Vector2 roundVec2(Vector2 v2) {
         return new Vector2(Mathf.Round(v2.x), Mathf.Round(v2.y));
     }
+
+	public static bool isRowFull(int y){
+		for (int x = 0; x < w; x++) {
+			if (grid [x, y] == null)
+				return false;
+		}
+		return true;
+	}
+
+	public static void deleteRow(int y){
+		for (int x = 0; x < w; x++) {
+			Destroy (grid [x, y].gameObject);
+			grid [x, y] = null;
+		}
+	}
+
+	public static void decreaseRow(int y){
+		for (int x = 0; x < w; x++) {
+			if (grid [x, y] != null) {
+				grid [x, y - 1] = grid [x, y];
+				grid [x, y] = null;
+				grid [x, y - 1].position += new Vector3 (0, -1, 0);
+			}
+		}
+	}
+
+	public static void DeleteAboveRow(int y){
+		for (int x = y; x < h; x++) {
+			decreaseRow (x);	
+		}
+	}
+
+	public static void DeleteAllPassRow(){
+		for (int y = 0; y < h; ) {
+			if (isRowFull (y)) {
+				deleteRow (y);
+				DeleteAboveRow (y + 1);
+			} else {
+				y++;
+			}
+		}
+	}
 }
