@@ -9,6 +9,7 @@ public class Groups : MonoBehaviour {
 	private bool gameOver = false;
 	public static bool downKey = false;
 
+
 	// Use this for initialization
 	void Start () {
 		if (!isValidGridPos ()) {
@@ -22,45 +23,49 @@ public class Groups : MonoBehaviour {
 		if (gameOver)
 			return;
 
-		if (UIManager.touchOne.x > UIManager.touchTwo.x) {
-			transform.position += new Vector3 (-1*Time.deltaTime, 0, 0);
+		if (UIManager.left) {
+			transform.position += new Vector3 (-1, 0, 0);
 			if (isValidGridPos ()) {
 				UpdateGrid ();
 			} else {
-				transform.position += new Vector3 (1*Time.deltaTime, 0, 0);
+				transform.position += new Vector3 (1, 0, 0);
 			}
+			UIManager.left = false;
 		}
 
-		if (UIManager.touchOne.x < UIManager.touchTwo.x) {
-			transform.position += new Vector3 (1*Time.deltaTime, 0, 0);
+		if (UIManager.right) {
+			transform.position += new Vector3 (1, 0, 0);
 			if (isValidGridPos ()) {
 				UpdateGrid ();
 			} else {
-				transform.position += new Vector3 (-1*Time.deltaTime, 0, 0);
+				transform.position += new Vector3 (-1, 0, 0);
 			} 
+			UIManager.right = false;
 		}
 
-		if (UIManager.touchOne.y > UIManager.touchTwo.y ||
+		if (UIManager.down ||
 		     Time.time - lastTime >= 1) { 
-			transform.position += new Vector3 (0, -1*Time.deltaTime, 0);
+			transform.position += new Vector3 (0, -1, 0);
 			if (isValidGridPos ()) {
 				UpdateGrid ();
 			} else {
-				transform.position += new Vector3 (0, 1*Time.deltaTime, 0);
+				transform.position += new Vector3 (0, 1, 0);
 				Grid.DeleteAllPassRow ();
 				enabled = false;
 				Spawn._instance.spawnNext ();
 			}
 			lastTime = Time.time;
+			UIManager.down = false;
 		}
 
-		if (UIManager.touchOne.y < UIManager.touchTwo.y) {
+		if (UIManager.change) {
 			transform.Rotate (new Vector3 (0, 0, -90));
 			if (isValidGridPos ()) {
 				UpdateGrid ();
 			} else {
 				transform.Rotate (new Vector3 (0, 0, 90));
 			}
+			UIManager.change = false;
 		}
 
 	}

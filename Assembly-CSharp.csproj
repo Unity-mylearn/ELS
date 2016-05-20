@@ -46,10 +46,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\GameController.cs" />
+     <Compile Include="Assets\Script\GameController3D.cs" />
      <Compile Include="Assets\Script\Grid.cs" />
      <Compile Include="Assets\Script\Group.cs" />
+     <Compile Include="Assets\Script\Group3D.cs" />
      <Compile Include="Assets\Script\Groups.cs" />
      <Compile Include="Assets\Script\IsAlive.cs" />
+     <Compile Include="Assets\Script\ShootLine.cs" />
      <Compile Include="Assets\Script\Spawn.cs" />
      <Compile Include="Assets\Script\UIManager.cs" />
  <Reference Include="UnityEngine.UI">
