@@ -69,12 +69,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\GameController.cs" />
-    <Compile Include="Assets\Script\Grid.cs" />
-    <Compile Include="Assets\Script\Group.cs" />
-    <Compile Include="Assets\Script\Groups.cs" />
-    <Compile Include="Assets\Script\Spawn.cs" />
-    <Compile Include="Assets\Script\UIManager.cs" />
+    <Compile Include="Assets\Script\2D\GameController.cs" />
+    <Compile Include="Assets\Script\2D\Grid.cs" />
+    <Compile Include="Assets\Script\2D\Group.cs" />
+    <Compile Include="Assets\Script\2D\Groups.cs" />
+    <Compile Include="Assets\Script\2D\IsAlive.cs" />
+    <Compile Include="Assets\Script\2D\Spawn.cs" />
+    <Compile Include="Assets\Script\2D\UIManager.cs" />
+    <Compile Include="Assets\Script\3D\CheckLine.cs" />
+    <Compile Include="Assets\Script\3D\GameController3D.cs" />
+    <Compile Include="Assets\Script\3D\Group3D.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
